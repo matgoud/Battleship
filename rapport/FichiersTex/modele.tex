@@ -1,0 +1,70 @@
+
+\section{Modèle}
+
+\par Lors de l'instanciation du modèle 2 joueurs sont créés. Par défaut le joueur 1 sera toujours un humain et le joueur 2 soit un RandomPlayer ou un IA Player, mais il est possible de faire s'affronter 2 Humains ou 2 Ordinateurs. Ces joueurs peuvent d'interagir avec les plateaux grâce à la fonction \textbf{attackP}(Coord c,Joueur jAttaquant,Joueur jAttaque), qui permet à un joueur d'attaquer le plateau de son adversaire.
+
+\subsection{Les joueurs}
+
+Il existe 3 types de joueurs :
+\\
+\begin{itemize}
+\item{Humain}
+\item{RandomPlayer}
+\item{IAPlayer}\\
+\end{itemize}
+
+\par Le RandomPlayer est un joueur qui effectue des coups de manière aléatoire contrairement à l'IA Player, qui a des stratégies d'implémentées. L'Humain est évidemment entièrement contrôlé par la personne qui joue au jeu.
+\par Chaque joueur possède un plateau qui lui est propre.
+
+\subsubsection{Plateau}
+
+L'objet \textbf{Plateau} représente la grille de jeu d'un joueur. Un plateau est un tableau bi-dimensionnel de taille 10 par 10 (taille par défaut). Un plateau est rempli par le biais d'une enum "StateShot" :
+\\
+\begin{itemize}
+\item{WATER}
+\item{SHIP}
+\item{WATER\_HIT}
+\item{SHIP\_HIT}\\
+\end{itemize}
+
+\par Quand un plateau est créé il est par défaut rempli d'eau (StateShot.WATER). Un plateau possède plusieurs méthodes utiles au déroulement de la partie :  
+\\
+\begin{itemize}
+\item{\textbf{ajoutBateau(Bateau b) :}} ajoute le bateau passé en paramètre dans le plateau.
+\item{\textbf{plusDeBateaux() :}} permet de savoir si les bateaux d'un joueur sont tous coulés.\\
+\end{itemize}
+Un plateau possède une liste contenant tous ses bateaux.
+
+\subsubsection{Les bateaux}
+\par L'objet \textbf{Bateau} représente un des bateau d'un plateau, et est caractérisé par :\\
+
+\begin{itemize}
+\item{Sa taille}
+\item{Son orientation}
+\item{Sa coordonnée de départ}\\
+\end{itemize}
+
+Un joueur possède un maximum de 5 bateaux :\\
+
+\begin{itemize}
+\item{Un bateau de taille 5 (le porte-avions)}
+\item{Un bateau de taille 4 (le croiseur)}
+\item{Deux bateau de taille 3 (les sous-marin)}
+\item{Un bateau de taille 2 (le torpilleur)}\\
+\end{itemize}
+
+L'orientation d'un bateau est représenté par une enum "Orientation" : \\
+
+\begin{itemize}
+\item{BAS}
+\item{DROITE}\\
+\end{itemize}
+
+Un bateau possède plusieurs méthodes :\\
+
+\begin{itemize}
+\item{\textbf{isCoordInside(Coord c) :}} indique si une coordonnée est parmi les coordonnée que couvre le bateau, ce qui est utile pour ne pas superposer des bateaux.
+\item{\textbf{isCoordNear(Coord c) :}} indique si une coordonnée est adjacente orthogonalement au bateau, ce qui permet d'éviter d'avoir 2 bateaux qui se touchent.
+\item{\textbf{isInPlateau(Plateau p) :}} permet de savoir si le bateau créé est dans les limites du plateau.
+\item{\textbf{isSunk(Plateau p) :}} permet de savoir si le bateau est coulé.
+\end{itemize}

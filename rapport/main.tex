@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{fullpage}
+\usepackage{float}
+
+\usepackage{tikz-uml}
+
+\title{Rapport Bataille Navale}
+\author{Brice Andrieux, Clément Bartolone, Mathieu Goudal, Loic Laloux}
+\date{Avril 2023}
+
+\begin{document}
+
+\maketitle
+
+    \begin{figure}[htp]
+        \centering
+        \includegraphics[scale=1]{images/BatailleNavale/unicaen.png}
+    \end{figure}
+    \newpage
+    \tableofcontents
+    \newpage
+
+\input{FichiersTex/introduction}
+\input{FichiersTex/MVC}
+\input{FichiersTex/modele}
+%\input{FichiersTex/vue}
+%\input{FichiersTex/controleur}
+\input{FichiersTex/terminal}
+\input{FichiersTex/interface}
+\newpage
+
+\section{Détail par package}
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.45]{images/Diagramme/package_modele.eps}
+\caption{\label{fig:Modele}Package modele}
+  
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.4]{images/Diagramme/package_player.eps}
+\caption{\label{fig:Player}Package player}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.4]{images/Diagramme/package_jeu.eps}
+\caption{\label{fig:Jeu}Package jeu}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.30]{images/Diagramme/package_vue.eps}
+\caption{\label{fig:Vue}Package vue}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.30]{images/Diagramme/package_controleur.eps}
+\caption{\label{fig:Controleur}Package controleur}
+\end{figure}
+
+\end{document}

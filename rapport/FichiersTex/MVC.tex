@@ -1,0 +1,30 @@
+
+\section{Pattern MVC}
+\subsection{Modèle écoutable}
+Un modèle écoutable est une classe abstraite permettant d'avoir un modèle qui possède des écouteurs et les prévient lorsqu'il se met à jour. Il est composé de plusieurs méthodes telles que :
+
+\begin{itemize}
+\item{\textbf{ajoutEcouteur}}
+Permet de rajouter des écouteurs au modèle.
+\item{\textbf{retraitEcouteur}}
+Permet de retirer des écouteurs.
+\item{\textbf{changement}}
+Permet de prévenir tout les écouteurs d'un changement au modèle.
+\end{itemize}
+
+Le modèle écoutable est implémenté par la classe bataille
+\subsection{Vue}
+\subsubsection{Ecouteur}
+L'interface écouteur est lié au modèle écoutable expliqué précédemment,
+elle ne contient qu'une méthode \textbf{miseAJour}(Object o) qui est 
+appelée par le modèle écoutable, cette méthode permet aussi de recevoir 
+un objet afin de déterminer quel modèle lui envoie une requête de mise 
+a jour.
+\subsubsection{Vue}
+La vue est une implémentation de l'interface écouteur, elle permet
+d'afficher le modèle et de s'actualiser lorsque le modèle se met a jour.
+Dans notre projet la vue est implémentée par les classes \textbf{vueTerminal} et \textbf{vueInterface}, afin de pouvoir afficher notre bataille navale sur le terminal et sur une interface graphique swing.
+\subsection{Contrôleur}
+Les contrôleurs permettent d'effectuer des actions sur le modèle et donc
+de le mettre indirectement a jour. Il est donc nécessaire de créer des
+contrôleurs adapté a la vue que sont \textbf{controleurTerminal} et \textbf{controleurInterface}, ainsi qu'un troisième contrôleur: \textbf{controleurBateau} qui permet de placer les bateaux dans l'interface graphique.
